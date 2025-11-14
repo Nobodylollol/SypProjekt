@@ -9,6 +9,7 @@ func _ready():
 	Spin_Button.pressed.connect(_SpinButton)
 	add_child(Spin_Button)
 	
+	
 
 func _SpinButton():
 	Result = rng.randi_range(0,36)
