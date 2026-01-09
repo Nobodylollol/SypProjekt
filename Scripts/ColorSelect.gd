@@ -1,9 +1,6 @@
 extends OptionButton
 class_name Option
 
-@onready var Select = $"."
-
-
 func getSelection() -> int:
 	return self.get_selected_id();
 
