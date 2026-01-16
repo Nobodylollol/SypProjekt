@@ -1,3 +1,9 @@
-ODD/EVEN
-Halfs
-Scaling multiplier(game scales with you)
+- Scaling multiplier(game scales with you)
+
+Point Validation
+	Number		x
+	Color		x
+	Half		x
+	Dozen		x
+	Column 		
+	Row			x
