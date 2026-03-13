@@ -17,7 +17,7 @@ func _ready():
 func _on_button_down() -> int:
 	
 	NumberEntered = NumCon.getNumEntered()
-	Result = Probabilities[rng.randi_range(0,36)];
+	Result = Probabilities[rng.randi_range(0,Probabilities.size()-1)];
 	
 	print("Output")
 	print("Generated: "+str(Result));

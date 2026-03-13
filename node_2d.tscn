@@ -1,13 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://bu5p1xv3i5tx"]
+[gd_scene load_steps=10 format=3 uid="uid://bu5p1xv3i5tx"]
 
 [ext_resource type="Script" uid="uid://baknkw5ycff34" path="res://Scripts/Random_Number_Generator.gd" id="1_wtcfe"]
 [ext_resource type="Script" uid="uid://lu666hjdufpn" path="res://Scripts/line_edit.gd" id="2_0e48y"]
 [ext_resource type="Script" uid="uid://46rar433lwbx" path="res://Scripts/Point_Validation.gd" id="3_epypp"]
-[ext_resource type="Script" uid="uid://gof3re1mf8i4" path="res://Scripts/Color_Select.gd" id="4_0hol4"]
+[ext_resource type="Script" uid="uid://gof3re1mf8i4" path="res://Scripts/select_color.gd" id="4_0hol4"]
 [ext_resource type="Script" uid="uid://cp314g78a7d17" path="res://Scripts/select_dozen.gd" id="5_q6r6c"]
 [ext_resource type="Script" uid="uid://dt0pyl57r78iu" path="res://Scripts/select_odd_even.gd" id="6_kdubu"]
 [ext_resource type="Script" uid="uid://bnb4vgbk7jyq7" path="res://Scripts/select_half.gd" id="7_rj586"]
 [ext_resource type="Script" uid="uid://c15pbsj6nx8tr" path="res://Scripts/select_row.gd" id="8_4d7sh"]
+[ext_resource type="Script" uid="uid://djxomy6t712iy" path="res://Scripts/select_column.gd" id="9_4d7sh"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -39,15 +40,15 @@ offset_left = 448.0
 offset_top = 304.0
 offset_right = 533.0
 offset_bottom = 335.0
-selected = 3
+selected = 0
 item_count = 4
-popup/item_0/text = "GREEN"
+popup/item_0/text = "None"
 popup/item_0/id = 0
 popup/item_1/text = "BLACK"
 popup/item_1/id = 1
 popup/item_2/text = "RED"
 popup/item_2/id = 2
-popup/item_3/text = "None"
+popup/item_3/text = "GREEN"
 popup/item_3/id = 3
 script = ExtResource("4_0hol4")
 
@@ -56,16 +57,16 @@ offset_left = 624.0
 offset_top = 304.0
 offset_right = 738.0
 offset_bottom = 335.0
-selected = 3
+selected = 0
 item_count = 4
-popup/item_0/text = "1st Dozen"
-popup/item_0/id = 1
-popup/item_1/text = "2nd Dozen"
-popup/item_1/id = 2
-popup/item_2/text = "3rd Dozen"
-popup/item_2/id = 3
-popup/item_3/text = "None"
-popup/item_3/id = 0
+popup/item_0/text = "None"
+popup/item_0/id = 0
+popup/item_1/text = "1st Dozen"
+popup/item_1/id = 1
+popup/item_2/text = "2nd Dozen"
+popup/item_2/id = 2
+popup/item_3/text = "3rd Dozen"
+popup/item_3/id = 3
 script = ExtResource("5_q6r6c")
 
 [node name="SelectOddEven" type="OptionButton" parent="."]
@@ -115,9 +116,18 @@ popup/item_3/text = "3rd Row"
 popup/item_3/id = 3
 script = ExtResource("8_4d7sh")
 
+[node name="SelectCollumn" type="LineEdit" parent="."]
+offset_left = 551.0
+offset_top = 228.0
+offset_right = 619.5625
+offset_bottom = 259.0
+placeholder_text = "Column"
+script = ExtResource("9_4d7sh")
+
 [connection signal="button_down" from="SpinButton" to="SpinButton" method="_on_button_down"]
 [connection signal="validateScore" from="SpinButton" to="Output" method="_on_spin_button_validate_score"]
 [connection signal="text_changed" from="NumberInput" to="NumberInput" method="_on_text_changed"]
 [connection signal="text_submitted" from="NumberInput" to="NumberInput" method="_on_text_submitted"]
 [connection signal="ready" from="Output" to="ColorSelect" method="_on_output_ready"]
 [connection signal="item_selected" from="ColorSelect" to="Output" method="checkForColorWithInt"]
+[connection signal="text_changed" from="SelectCollumn" to="SelectCollumn" method="_on_text_changed"]
