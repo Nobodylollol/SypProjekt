@@ -1,3 +1,8 @@
+ODD/EVEN
+Halfs
+Scaling multiplier(game scales with you)
+
+Score calcuclation with payout base mult
 - Scaling multiplier(game scales with you)
 
 Point Validation
