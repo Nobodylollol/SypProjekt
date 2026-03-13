@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://bu5p1xv3i5tx"]
+
+[ext_resource type="Script" uid="uid://baknkw5ycff34" path="res://Random_Number_Generator.gd" id="1_wtcfe"]
+[ext_resource type="Script" uid="uid://lu666hjdufpn" path="res://line_edit.gd" id="2_0e48y"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="SpinButton" type="Button" parent="."]
+offset_left = 345.0
+offset_top = 252.0
+offset_right = 696.29974
+offset_bottom = 382.57376
+text = "SPIN"
+script = ExtResource("1_wtcfe")
+
+[node name="NumberInput" type="LineEdit" parent="."]
+offset_left = 479.0
+offset_top = 206.0
+offset_right = 547.5625
+offset_bottom = 237.0
+text = "10"
+script = ExtResource("2_0e48y")
+
+[connection signal="button_down" from="SpinButton" to="SpinButton" method="_on_button_down"]
+[connection signal="text_changed" from="NumberInput" to="NumberInput" method="_on_text_changed"]
+[connection signal="text_submitted" from="NumberInput" to="NumberInput" method="_on_text_submitted"]
