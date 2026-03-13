@@ -3,3 +3,15 @@ Halfs
 Scaling multiplier(game scales with you)
 
 Score calcuclation with payout base mult
+- Scaling multiplier(game scales with you)
+
+Point Validation
+	MultiSelection
+		columns
+		numbers
+	Number		x
+	Color		x
+	Half		x
+	Dozen		x
+	Column 		
+	Row 		x
