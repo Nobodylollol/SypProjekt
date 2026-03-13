@@ -1,3 +1,5 @@
 ODD/EVEN
 Halfs
 Scaling multiplier(game scales with you)
+
+Score calcuclation with payout base mult

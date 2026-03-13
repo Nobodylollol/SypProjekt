@@ -1,12 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://bu5p1xv3i5tx"]
+[gd_scene load_steps=7 format=3 uid="uid://bu5p1xv3i5tx"]
 
+[ext_resource type="Script" uid="uid://btixsljxjcd3a" path="res://Scripts/Multiplier.gd" id="1_kdubu"]
 [ext_resource type="Script" uid="uid://baknkw5ycff34" path="res://Scripts/Random_Number_Generator.gd" id="1_wtcfe"]
 [ext_resource type="Script" uid="uid://lu666hjdufpn" path="res://Scripts/line_edit.gd" id="2_0e48y"]
-[ext_resource type="Script" uid="uid://46rar433lwbx" path="res://Scripts/PointValidation.gd" id="3_epypp"]
-[ext_resource type="Script" uid="uid://gof3re1mf8i4" path="res://Scripts/ColorSelect.gd" id="4_0hol4"]
+[ext_resource type="Script" uid="uid://46rar433lwbx" path="res://Scripts/Point_Validation.gd" id="3_epypp"]
+[ext_resource type="Script" uid="uid://gof3re1mf8i4" path="res://Scripts/Color_Select.gd" id="4_0hol4"]
 [ext_resource type="Script" uid="uid://cp314g78a7d17" path="res://select_dozen.gd" id="5_q6r6c"]
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_kdubu")
 
 [node name="SpinButton" type="Button" parent="."]
 offset_left = 345.0
@@ -16,12 +18,14 @@ offset_bottom = 382.57376
 text = "SPIN"
 script = ExtResource("1_wtcfe")
 
-[node name="NumberInput" type="LineEdit" parent="."]
+[node name="NumberInput" type="LineEdit" parent="." node_paths=PackedStringArray("shortcut_context")]
 offset_left = 477.0
 offset_top = 185.0
 offset_right = 545.5625
 offset_bottom = 216.0
+shortcut_context = NodePath(".")
 placeholder_text = "NumGuess"
+max_length = 2
 script = ExtResource("2_0e48y")
 
 [node name="Output" type="Label" parent="."]
