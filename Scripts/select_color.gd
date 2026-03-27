@@ -1,5 +1,4 @@
 extends OptionButton
-class_name Option
 
 func getSelection() -> int:
 	return self.get_selected_id();

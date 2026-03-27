@@ -4,38 +4,13 @@ extends Node
 @onready var NumInput 	:= $"../NumberInput"
 @onready var OptionCol 	:= $"../ColorSelect"
 @onready var OptionDoz	:= $"../SelectDozen"
-
-const BLACK := [2,4,6,8,10,11,13,15,17,20,22,24,26,28,31,33,35]
-const RED 	:= [1,3,5,7,9,12,14,16,18,19,21,23,25,27,30,32,34,36]
-
-func _on_spin_button_validate_score() -> int:
-	self.text=""
-	if NumGen.getResult()==NumInput.getNumEntered():
-		self.text="	You've guessed the right number\n
-					Calculating score"
-		return 1;
-		
-	if checkForColorWithInt(NumGen.getResult()) == checkForColorWithStr(str(OptionCol.getSelection())):
-		self.text= "	You've guessed the right color\n
-							Calculating score"
-							
-	if checkForThird(NumGen.getResult())==checkForThirdWithId():
-		self.text=	"You've guessed the right Third \n
-					Calculating score"
-	return -1 
-
-func checkForColorWithInt(Check :int) -> String:
-@onready var NumGen 		:= $"../SpinButton"
-@onready var NumInput 		:= $"../NumberInput"
-@onready var OptionCol 		:= $"../ColorSelect"
-@onready var OptionDoz		:= $"../SelectDozen"
 @onready var OptionOddEven	:= $"../SelectOddEven"
 @onready var OptionHalf		:= $"../SelectHalf"
 @onready var OptionRow		:= $"../SelectRow"
 @onready var OptionColumn 	:= $"../SelectCollumn"
 
 const BLACK := [2,4,6,8,10,11,13,15,17,20,22,24,26,28,31,33,35]
-const RED 	:= [1,3,5,7,9,12,14,16,18,19,21,23,25,27,30,32,34,36];
+const RED 	:= [1,3,5,7,9,12,14,16,18,19,21,23,25,27,30,32,34,36]
 
 const ROWS	:Array[Array] = [	
 								[1,4,7,10,13,16,19,22,25,28,31,34],
@@ -49,6 +24,7 @@ const COLUMNS :Array[Array] = [
 								[13,14,15],[16,17,18],[19,20,21],[22,23,24],
 								[25,26,27],[28,29,30],[31,32,33],[34,35,36]
 							  ]
+							
 
 func _on_spin_button_validate_score() -> int:
 	var input = NumGen.getResult();
@@ -58,7 +34,8 @@ func _on_spin_button_validate_score() -> int:
 							Calculating score"
 		return 1;
 		
-	elif checkForColorWithInt(input) == checkForColorWithId() && checkForColorWithId()!="err":
+		
+	elif checkForColor(input) == checkForColorWithId() && checkForColorWithId()!="err":
 		self.text= "	You've guessed the right color\n
 							Calculating score"
 							
@@ -81,25 +58,15 @@ func _on_spin_button_validate_score() -> int:
 	
 	return -1 
 
-func checkForColorWithInt(Check :int)		->	String:
-	if Check==0:
-		return "GREEN"
-	if !(RED.find(Check)==-1):
-		return "RED"
-	elif !(BLACK.find(Check)==-1):
-		return "BLACK" 
-	return "ERR"
 	
-func checkForColorWithStr(Check :String) -> String:
-	if Check=="3":
-		return "GREEN"
-	elif Check=="2":
+func checkForColor(input :int) -> String:
+	if BLACK.find(input):
+		return "BLACK"
+	elif RED.find(input):
 		return "RED"
-	elif Check=="1":
+	elif input==0:
 		return "BLACK" 
 	return "ERR"	
-
-func checkForThird(input:int)->int:
 
 func checkForColorWithId()	->	String:
 	if OptionCol.getSelection()==3:
@@ -119,10 +86,6 @@ func checkForThird(input:int)	->	int:
 		return 3;
 	return -1
 
-func checkForThirdWithId()->int:
-	if OptionDoz.getSelection() != 0:
-		return OptionDoz.getSelection()
-	return -1
 func checkForThirdWithId()		->	int:
 	if OptionDoz.getSelection() != 0:
 		return OptionDoz.getSelection()
